@@ -55,12 +55,12 @@ body {
 .container {
 	position: relative;
 	width: 100%;
-	max-width: 1080px;
+	/* max-width: 1080px; */
 	margin: 0 auto;
 }
 
 .container--outer {
-	margin: 25px auto;
+	/* margin: 25px auto; */
 	box-shadow: 0 0 10px rgba(50, 50, 50, .17);
 }
 
@@ -1140,7 +1140,7 @@ textarea {
 /* Media Queries */
 @media screen and (max-width: 1475px) {
 	.container--outer {
-		width: 95%;
+		width: 100%;
 	}
 }
 
