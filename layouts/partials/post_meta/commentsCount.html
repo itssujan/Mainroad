@@ -10,8 +10,14 @@
     {{ end }}
   {{ end }}
 {{ end }}
+{{ $commentCount := $.Scratch.Get "counter" }}
+
 
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 16 16"><path d="m8-.0000003c-4.4 0-8 3.6-8 8 0 4.4000003 3.6 8.0000003 8 8.0000003 4.4 0 8-3.6 8-8.0000003 0-4.4-3.6-8-8-8zm0 14.4000003c-3.52 0-6.4-2.88-6.4-6.4000003 0-3.52 2.88-6.4 6.4-6.4 3.52 0 6.4 2.88 6.4 6.4 0 3.5200003-2.88 6.4000003-6.4 6.4000003zm.4-10.4000003h-1.2v4.8l4.16 2.5600003.64-1.04-3.6-2.1600003z"/></svg>
-  <span class="meta__text">{{$.Scratch.Get "counter"}} comments</span>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 439.3 529.7"><path d="M0 529.7l108.9-117.1h330.4V0H.7L0 529.7zM338.7 173c20.5 0 37.2 16.6 37.2 37.2 0 20.5-16.6 37.2-37.2 37.2s-37.2-16.6-37.2-37.2c.1-20.5 16.7-37.2 37.2-37.2zM220 173c20.5 0 37.2 16.6 37.2 37.2 0 20.5-16.6 37.2-37.2 37.2-20.5 0-37.2-16.6-37.2-37.2.1-20.5 16.7-37.2 37.2-37.2zm-118.7 0c20.5 0 37.2 16.6 37.2 37.2 0 20.5-16.6 37.2-37.2 37.2-20.5 0-37.2-16.6-37.2-37.2 0-20.5 16.7-37.2 37.2-37.2z"/></svg>
+  {{ if eq $commentCount 1 }}
+    <span class="meta__text">{{$.Scratch.Get "counter"}} comment </span>
+  {{ else }}
+    <span class="meta__text">{{$.Scratch.Get "counter"}} comments </span>
+  {{ end }}
 </div>
