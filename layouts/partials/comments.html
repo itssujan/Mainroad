@@ -1,3 +1,37 @@
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	$(function() {
+	//hang on event of form with id=myform
+		$("#comments_form").submit(function(e) {
+				//prevent Default functionality
+				e.preventDefault();
+				//get the action-url of the form
+				var actionurl = 'https://dev.staticman.net/v3/entry/github/itssujan/polyglot-developer/staticman/comments';
+				//do your own request an handle the results
+				$.ajax({
+						url: actionurl,
+						type: 'post',
+						dataType: 'application/json',
+						data: $("#comments_form").serialize(),
+				}).always( function() {
+						$( "#comment-submitted" ).show();
+				});
+
+		});
+
+		$( "#ok_button" ).click(function() {
+			$('#comments_form').trigger("reset");
+		  $( "#comment-submitted" ).hide();
+		});
+
+	});
+
+</script>
+
 <section class="post-comments">
   <h3>Comments</h3>
 
@@ -25,14 +59,14 @@
   {{ end }}
 
   <h3>Say something</h3>
-  <form class="post-new-comment" method="POST" action="https://dev.staticman.net/v3/entry/github/itssujan/polyglot-developer/master/comments">
+  <form class="post-new-comment" method="POST" action="#" name="comments_form" id="comments_form">
   <!--form class="post-new-comment" method="POST" action="http://localhost:8055/v2/entry/eduardoboucas/staticman-test/master/comments"-->
     <input type="hidden" name="options[redirect]" value="{{ .Permalink }}#comment-submitted">
     <input type="hidden" name="options[entryId]" value="{{ .UniqueID }}">
     <input name="fields[name]" type="text" class="post-comment-field" placeholder="Your name">
     <input name="fields[email]" type="email" class="post-comment-field" placeholder="Your email address">
     <textarea name="fields[body]" class="post-comment-field" placeholder="Your message. Feel free to use Markdown." rows="10"></textarea>
-    <input type="submit" class="post-comment-field btn" value="Submit">
+    <input type="submit" class="post-comment-field btn" value="Submit" on>
   </form>
 </section>
 
@@ -40,6 +74,5 @@
 <h3>Thank you</h3>
   <p>Your comment has been submitted and will be published once it has been approved.</p>
   <p><a href="https://github.com/eduardoboucas/hugo-plus-staticman/pulls">Click here</a> to see the pull request you generated.</p>
-
-  <p><a href="#" class="btn">OK</a></p>
+  <p><a href="#" class="btn" id="ok_button">OK</a></p>
 </div>
