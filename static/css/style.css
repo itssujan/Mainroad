@@ -48,7 +48,9 @@ body {
 	font-size: .875rem;
 	line-height: 1.6;
 	word-wrap: break-word;
-	background: #f7f7f7;
+	/* background: #f7f7f7; */
+	background-color: #141d26 !important;
+	text-decoration-color: red;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -616,6 +618,11 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .meta__text {
 	vertical-align: middle;
+}
+
+.comments__count {
+	vertical-align: middle;
+	color: #e64946;
 }
 
 .post__title {
