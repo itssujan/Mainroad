@@ -7,5 +7,5 @@
 {{ else }}
   <meta name="twitter:title" content="{{- .Params.title -}}">
   <meta name="twitter:description" content="{{- .Params.description -}}">
-  <meta name="twitter:image" content="{{- .Params.thumbnail -}}">
+  <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}">
 {{ end }}
