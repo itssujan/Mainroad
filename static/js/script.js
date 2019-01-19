@@ -33,8 +33,7 @@ $(function() {
         dataType: 'application/json',
         data: {'email_address': email_id, 'api_key': api_key, "status": "SUBSCRIBED"},
     }).always( function() {
-        $( "#open-modal" ).hide();
-        alert("Success");
+        $( "#subscribe" ).hide();
     });
 
   })
